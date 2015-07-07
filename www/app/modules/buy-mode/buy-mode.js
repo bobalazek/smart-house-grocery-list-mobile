@@ -64,7 +64,7 @@ angular
 
                                     vm.productScanned = true;
                                 } else {
-                                    alert('This is not a EAN Code!')
+                                    alert('This is not a EAN Code!');
                                 }
                             },
                             function(error) {
