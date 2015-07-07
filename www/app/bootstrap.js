@@ -4,7 +4,15 @@ angular
         [
             'ionic',
             'smartHouseGroceryList.home',
+            'smartHouseGroceryList.dashboard',
+            'smartHouseGroceryList.stockManager',
+            'smartHouseGroceryList.buyMode',
+            'smartHouseGroceryList.trashMode',
         ]
+    )
+    .constant(
+        'API_URL',
+        'http://localhost/smart-house-grocery-list/api' // WITHOUT leading slash!
     )
     .config( function($urlRouterProvider) {
         // Routes
