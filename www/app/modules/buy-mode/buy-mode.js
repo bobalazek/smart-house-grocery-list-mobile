@@ -17,9 +17,10 @@ angular
     })
     .controller (
         'BuyModeController',
-        function BuyModeController($rootScope, $scope, $ionicPlatform, $cordovaBarcodeScanner, IS_DESKTOP) {
+        function BuyModeController($rootScope, $scope, $ionicPlatform, $cordovaBarcodeScanner, API_URL, IS_DESKTOP) {
             var vm = this;
 
+            vm.productScanned = false;
             vm.product = {
                 name: '',
                 description: '',
@@ -43,12 +44,31 @@ angular
                         .scan()
                         .then(
                             function(barcodeData) {
-                                // TO-DO: Request on the server and check if the product already exists (to hydrate the data)
+                                // To-Do: Also maybe check JUST for ean codes!
+                                vm.productScanned = true;
+
+                                var eanCode = barcodeData.text;
+
+                                $http
+                                    .get(API_URL + '/my/products/' + eanCode + '?byEanCode=true')
+                                    .success( function(data, status, headers, config) {
+                                        vm.product = data.product;
+                                    })
+                                    .error( function(data, status, headers, config) {
+                                        // No product with this EAN Code found (yet)
+                                    })
+                                    .finally( function() {
+
+                                    })
+                                ;
                             },
                             function(error) {
                                 alert(error);
                             }
                         )
+                        .finally( function() {
+
+                        })
                     ;
                 });
             };

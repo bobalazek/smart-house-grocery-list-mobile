@@ -31,9 +31,7 @@ angular
                 vm.productsLoadingError = false;
 
                 $http
-                    .get(
-                        API_URL + '/my/products'
-                    )
+                    .get(API_URL + '/my/products')
                     .success( function(data, status, headers, config) {
                         // vm.products = data.products;
                         vm.products = [
@@ -65,7 +63,6 @@ angular
                     })
                     .error( function(data, status, headers, config) {
                         vm.productsLoadingError = 'Whoops, something went wrong!'; // data.error.message;
-
                     })
                     .finally( function() {
                         vm.productsLoaded = true;
