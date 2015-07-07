@@ -46,10 +46,10 @@ angular
                             function(barcodeData) {
                                 var format = barcodeData.format;
 
-                                if(format == 'ean_8' || format == 'ean_13') {
-                                    var eanCode = barcodeData.text;
+                                if(format == 'EAN_8' || format == 'EAN_13') {
+                                    var eanCode = parseInt(barcodeData.text);
 
-                                    vm.product.eanCode = eanCode; // For now, do it this way, so we know the scan was successful
+                                    vm.product.eanCode = eanCode;
 
                                     $http
                                         .get(API_URL + '/my/products/' + eanCode + '?byEanCode=true')
