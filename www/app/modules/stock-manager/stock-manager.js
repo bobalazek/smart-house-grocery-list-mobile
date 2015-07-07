@@ -23,6 +23,7 @@ angular
             vm.productsLoaded = false;
             vm.productsLoading = false;
             vm.productsLoadingError = false;
+            vm.search = '';
 
             vm.loadProducts = function() {
                 vm.productsLoaded = false;
