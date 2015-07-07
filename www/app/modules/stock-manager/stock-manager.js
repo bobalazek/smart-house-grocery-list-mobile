@@ -3,6 +3,7 @@ angular
         'smartHouseGroceryList.stockManager',
         [
             'ui.router',
+            'angularMoment',
         ]
     )
     .config( function($stateProvider) {
@@ -40,14 +41,26 @@ angular
                                 id: 1,
                                 eanCode: '123456789',
                                 name: 'Coca-cola',
-                                description: null,
+                                description: 'The good old cola!',
                                 price: 1.99,
                                 imageUrl: 'https://yt3.ggpht.com/-3o0qMaMvuwc/AAAAAAAAAAI/AAAAAAAAAAA/CycJ2hpRKvA/s900-c-k-no/photo.jpg',
                                 quantity: 1,
                                 nonExpiring: false,
-                                timeCreated: '2015-07-01 15:00',
-                                timeExpiring: '2016-07-01 15:00',
-                            }
+                                timeCreated: '2015-07-01 15:00:00',
+                                timeExpiring: '2016-07-01 15:00:00',
+                            },
+                            {
+                                id: 2,
+                                eanCode: '223456789',
+                                name: 'Pepsi',
+                                description: null,
+                                price: 2.99,
+                                imageUrl: 'http://www.bmstores.co.uk/images/hpcProductImage/imgFull/2059-Pepsi-330ml-Can.jpg',
+                                quantity: 3,
+                                nonExpiring: false,
+                                timeCreated: '2015-07-06 15:00:00',
+                                timeExpiring: '2015-08-01 15:00:00',
+                            },
                         ];
                     })
                     .error( function(data, status, headers, config) {

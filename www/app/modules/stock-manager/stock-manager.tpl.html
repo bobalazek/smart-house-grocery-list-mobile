@@ -26,6 +26,22 @@
                 <img src="http://placehold.it/128"
                     ng-src="{{product.imageUrl}}" />
                 <h2>{{product.name}}</h2>
+                <p>
+                    <span ng-if="product.description">
+                        {{product.description}}
+                        <br />
+                    </span>
+                    Expires:
+                    <span ng-if="product.nonExpiring">never</span>
+                    <span ng-if="! product.nonExpiring">
+                        <span  am-time-ago="product.timeExpiring"></span>
+                        <small>({{product.timeExpiring | amDateFormat:'DD.MM.YYYY'}})</small>
+                    </span>
+                    <br />
+                    Added:
+                    <span am-time-ago="product.timeCreated"></span>
+                </p>
+                <span class="badge badge-assertive">{{product.quantity}}</span>
             </ion-item>
         </ion-list>
     </ion-content>
