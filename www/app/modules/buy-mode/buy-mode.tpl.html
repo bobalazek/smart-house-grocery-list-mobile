@@ -29,11 +29,11 @@
             </label>
             <label class="item item-input item-stacked-label">
                 <span class="input-label">Price (in EUR)</span>
-                <input type="text" placeholder="1" ng-model="buyModeScope.product.price" />
+                <input type="number" step="0.01" placeholder="1" ng-model="buyModeScope.product.price" />
             </label>
             <label class="item item-input item-stacked-label">
                 <span class="input-label">Quantity</span>
-                <input type="number" placeholder="1" ng-model="buyModeScope.product.quantity" />
+                <input type="number" step="1" placeholder="1" ng-model="buyModeScope.product.quantity" />
             </label>
             <ion-toggle toggle-class="toggle-calm" ng-model="buyModeScope.product.expires">Expires</ion-toggle>
             <ionic-datepicker class="item item-icon-right"
