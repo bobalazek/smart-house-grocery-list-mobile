@@ -4,6 +4,7 @@ angular
         [
             'ui.router',
             'ngCordova',
+            'ionic-datepicker',
         ]
     )
     .config( function($stateProvider) {
