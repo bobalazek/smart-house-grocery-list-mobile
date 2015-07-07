@@ -46,7 +46,7 @@ angular
                             function(barcodeData) {
                                 var format = barcodeData.format;
 
-                                if(format == 'EAN_8' || format == 'EAN_13') {
+                                if(format == 'ean_8' || format == 'ean_13') {
                                     var eanCode = barcodeData.text;
 
                                     vm.product.eanCode = eanCode; // For now, do it this way, so we know the scan was successful

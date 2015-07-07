@@ -1,8 +1,7 @@
 <ion-view view-title="Home" ng-controller="BuyModeController as buyModeScope">
-    <ion-header-bar align-title="left" class="bar-positive">
+    <ion-header-bar class="bar-positive">
         <h1 class="title">Buy mode</h1>
         <div class="buttons">
-            <button class="button" ng-click="buyModeScope.scan()" style="margin-right: 20px;">Scan product</button>
             <button class="button" ng-click="buyModeScope.save()" style="margin-right: 20px;">Save</button>
             <button class="button" ng-click="buyModeScope.saveAndNew()">Save and New</button>
         </div>
@@ -43,4 +42,9 @@
             </ionic-datepicker>
         </div>
     </ion-content>
+    <ion-footer-bar class="bar-positive">
+        <h1 class="title"></h1>
+        <div class="buttons">
+            <button class="button" ng-click="buyModeScope.scan()">Scan a Product</button>
+        </div>
 </ion-view>
