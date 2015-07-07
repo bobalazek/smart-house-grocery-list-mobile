@@ -36,6 +36,16 @@
                 <input type="number" placeholder="1" ng-model="buyModeScope.product.quantity" />
             </label>
             <ion-toggle toggle-class="toggle-calm" ng-model="buyModeScope.product.expires">Expires</ion-toggle>
+            <ionic-datepicker class="item item-icon-right"
+                idate="currentDate"
+                callback="buyModeScope.timeExpiringCallback"
+                ng-if="buyModeScope.product.expires">
+                <div class="input-label">
+                    Time expires
+                </div>
+                <input type="text" ng-model="buyModeScope.product.timeExpiring" placeholder="2015-01-01" />
+                <i class="icon ion-calendar"></i>
+            </ionic-datepicker>
         </div>
     </ion-content>
 </ion-view>

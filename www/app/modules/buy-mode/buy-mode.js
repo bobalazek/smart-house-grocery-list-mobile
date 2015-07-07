@@ -28,7 +28,7 @@ angular
                 quantity: 1,
                 nonExpiring: false, // We'll probably use this varible ...
                 expires: true, // ... and reverse this one on send / save
-                timeExpiring: new Date(),
+                timeExpiring: moment().format('YYYY-MM-DD'),
             };
 
             vm.scan = function() {
@@ -59,6 +59,15 @@ angular
 
             vm.saveAndNew = function() {
 
+            };
+
+            vm.timeExpiringCallback = function(val) {
+                if(typeof(val) === 'undefined') {
+                    // Not selected...
+                } else {
+                    var dateObj = moment(val);
+                    vm.product.timeExpiring = dateObj.format('YYYY-MM-DD');
+                }
             };
 
             return vm;
