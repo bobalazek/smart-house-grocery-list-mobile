@@ -44,23 +44,28 @@ angular
                         .scan()
                         .then(
                             function(barcodeData) {
-                                // To-Do: Also maybe check JUST for ean codes!
-                                vm.productScanned = true;
+                                var format = barcodeData.format;
 
-                                var eanCode = barcodeData.text;
+                                if(format == 'EAN_8' || format == 'EAN_13') {
+                                    var eanCode = barcodeData.text;
 
-                                $http
-                                    .get(API_URL + '/my/products/' + eanCode + '?byEanCode=true')
-                                    .success( function(data, status, headers, config) {
-                                        vm.product = data.product;
-                                    })
-                                    .error( function(data, status, headers, config) {
-                                        // No product with this EAN Code found (yet)
-                                    })
-                                    .finally( function() {
+                                    $http
+                                        .get(API_URL + '/my/products/' + eanCode + '?byEanCode=true')
+                                        .success( function(data, status, headers, config) {
+                                            vm.product = data.product;
+                                        })
+                                        .error( function(data, status, headers, config) {
+                                            // No product with this EAN Code found (yet)
+                                        })
+                                        .finally( function() {
 
-                                    })
-                                ;
+                                        })
+                                    ;
+
+                                    vm.productScanned = true;
+                                } else {
+                                    alert('This is not a EAN Code!')
+                                }
                             },
                             function(error) {
                                 alert(error);
