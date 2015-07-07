@@ -1,6 +1,10 @@
 {
   "name": "HelloIonic",
   "private": "true",
+  "dependencies": {
+      "moment": "~2.9",
+      "angular-moment": "~0.10.1"  
+  },
   "devDependencies": {
     "ionic": "driftyco/ionic-bower#1.0.1"
   }
