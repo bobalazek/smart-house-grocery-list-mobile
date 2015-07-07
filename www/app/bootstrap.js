@@ -14,6 +14,10 @@ angular
         'API_URL',
         'https://localhost/bitbucket/bobalazek/silex-web-application-boilerplate/web/api/v1' // WITHOUT leading slash!
     )
+    .constant(
+        'IS_DESKTOP',
+        window.location.protocol !== 'file:'
+    )
     .config( function($urlRouterProvider) {
         // Routes
         $urlRouterProvider.otherwise('/');

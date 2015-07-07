@@ -1,7 +1,20 @@
-<ion-view view-title="Home">
+<ion-view view-title="Home" ng-controller="BuyModeController as buyModeScope">
+    <ion-header-bar align-title="left" class="bar-positive">
+        <h1 class="title">Buy mode</h1>
+        <div class="buttons">
+            <button class="button" ng-click="buyModeScope.scan()">Scan</button>
+        </div>
+    </ion-header-bar>
     <ion-content>
-        <h1 class="text-center">
-            Buy Mode
-        </h1>
+        <div class="list">
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Name</span>
+                <input type="text" placeholder="Coca-cola" ng-model="buyModeScope.product.name" />
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">EAN Code</span>
+                <input type="text" placeholder="123456789" ng-model="buyModeScope.product.eanCode" />
+            </label>
+        </div>
     </ion-content>
 </ion-view>

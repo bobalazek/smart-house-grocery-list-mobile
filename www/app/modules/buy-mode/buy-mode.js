@@ -3,6 +3,7 @@ angular
         'smartHouseGroceryList.buyMode',
         [
             'ui.router',
+            'ngCordova',
         ]
     )
     .config( function($stateProvider) {
@@ -15,8 +16,28 @@ angular
     })
     .controller (
         'BuyModeController',
-        function BuyModeController($rootScope, $scope) {
+        function BuyModeController($rootScope, $scope, $ionicPlatform, $cordovaBarcodeScanner, IS_DESKTOP) {
             var vm = this;
+
+            vm.scan = function() {
+                if(IS_DESKTOP) {
+                    alert('This functionality does NOT work on desktop!')
+                    return false;
+                }
+
+                $ionicPlatform.ready( function() {
+                    $cordovaBarcodeScanner
+                        .scan()
+                        .then(
+                            function(barcodeData) {
+
+                            }, function(error) {
+                                alert(error);
+                            }
+                        )
+                    ;
+                });
+            };
 
             return vm;
         }
