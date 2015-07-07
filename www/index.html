@@ -15,14 +15,10 @@
             <script src="lib/ionic/js/ionic.bundle.js"></script>
             <script src="cordova.js"></script>
             <script src="app/bootstrap.js"></script>
+            <script src="app/modules/home/home.js"></script>
         <!-- Javascripts /END -->
     </head>
-    <body ng-app="smartHouseGroceryList">
-        <ion-pane>
-            <ion-header-bar class="bar-stable">
-                <h1 class="title">Smart House Groceries List</h1>
-            </ion-header-bar>
-            <ion-content></ion-content>
-        </ion-pane>
+    <body ng-app="smartHouseGroceryList" ng-controller="ApplicationController as applicationScope">
+        <ion-nav-view></ion-nav-view>
     </body>
 </html>
