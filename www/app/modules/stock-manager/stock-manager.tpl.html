@@ -15,13 +15,16 @@
         </div>
         <!-- Products -->
         <ion-list>
-            <ion-item ng-show="stockManagerScope.products.length == 0 && stockManagerScope.productsLoaded">
+            <ion-item ng-if="stockManagerScope.products.length == 0 && stockManagerScope.productsLoaded">
                 You currently do not have a item added!
             </ion-item>
-            <ion-item ng-show="stockManagerScope.products.length > 0 && (stockManagerScope.products | filter : stockManagerScope.search).length == 0 && stockManagerScope.search != ''">
+            <ion-item ng-if="stockManagerScope.products.length > 0 && (stockManagerScope.products | filter : stockManagerScope.search).length == 0 && stockManagerScope.search != ''">
                 We did not found any products under the keyword <b>{{stockManagerScope.search}}</b>.
             </ion-item>
-            <ion-item ng-show="stockManagerScope.productsLoadingError">
+            <ion-item ng-if="stockManagerScope.productsLoading">
+                Loading products ...
+            </ion-item>
+            <ion-item ng-if="stockManagerScope.productsLoadingError">
                 {{stockManagerScope.productsLoadingError}}
             </ion-item>
             <ion-item class="item-thumbnail-left"
