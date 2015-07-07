@@ -12,7 +12,7 @@ angular
     )
     .constant(
         'API_URL',
-        'http://localhost/smart-house-grocery-list/api' // WITHOUT leading slash!
+        'https://localhost/bitbucket/bobalazek/silex-web-application-boilerplate/web/api/v1' // WITHOUT leading slash!
     )
     .config( function($urlRouterProvider) {
         // Routes

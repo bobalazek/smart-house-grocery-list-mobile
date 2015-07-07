@@ -1,7 +1,32 @@
-<ion-view view-title="Home">
+<ion-view view-title="Home" ng-controller="StockManagerController as stockManagerScope">
+    <ion-header-bar align-title="left" class="bar-positive">
+        <h1 class="title">Stock manager</h1>
+        <div class="buttons">
+            <button class="button">Add new</button>
+        </div>
+    </ion-header-bar>
     <ion-content>
-        <h1 class="text-center">
-            Stock manager
-        </h1>
+        <div class="bar bar-header item-input-inset">
+            <label class="item-input-wrapper">
+                <i class="icon ion-ios-search placeholder-icon"></i>
+                <input type="search" placeholder="Search" />
+            </label>
+            <button class="button button-clear">Cancel</button>
+        </div>
+        <!-- Products -->
+        <ion-list>
+            <ion-item ng-show="stockManagerScope.products.length == 0 && stockManagerScope.productsLoaded">
+                You currently do not have a item added!
+            </ion-item>
+            <ion-item ng-show="stockManagerScope.productsLoadingError">
+                {{stockManagerScope.productsLoadingError}}
+            </ion-item>
+            <ion-item class="item-thumbnail-left"
+                ng-repeat="product in stockManagerScope.products">
+                <img src="http://placehold.it/128"
+                    ng-src="{{product.imageUrl}}" />
+                <h2>{{product.name}}</h2>
+            </ion-item>
+        </ion-list>
     </ion-content>
 </ion-view>
