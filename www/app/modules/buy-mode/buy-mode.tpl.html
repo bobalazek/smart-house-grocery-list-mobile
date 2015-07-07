@@ -2,19 +2,40 @@
     <ion-header-bar align-title="left" class="bar-positive">
         <h1 class="title">Buy mode</h1>
         <div class="buttons">
-            <button class="button" ng-click="buyModeScope.scan()">Scan</button>
+            <button class="button" ng-click="buyModeScope.save()" style="margin-right: 20px;">Save</button>
+            <button class="button" ng-click="buyModeScope.saveAndNew()">Save and New</button>
         </div>
     </ion-header-bar>
     <ion-content>
         <div class="list">
+            <div class="item">
+                <button class="button button-block button-large button-dark"
+                    ng-click="buyModeScope.scan()">
+                    Scan the product
+                </button>
+            </div>
             <label class="item item-input item-stacked-label">
                 <span class="input-label">Name</span>
                 <input type="text" placeholder="Coca-cola" ng-model="buyModeScope.product.name" />
             </label>
             <label class="item item-input item-stacked-label">
+                <span class="input-label">Description</span>
+                <input type="text" placeholder="An awesome product!" ng-model="buyModeScope.product.description" />
+            </label>
+            <label class="item item-input item-stacked-label">
                 <span class="input-label">EAN Code</span>
                 <input type="text" placeholder="123456789" ng-model="buyModeScope.product.eanCode" />
             </label>
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Price (in EUR)</span>
+                <input type="text" placeholder="1" ng-model="buyModeScope.product.price" />
+            </label>
+            <label class="item item-input item-stacked-label">
+                <span class="input-label">Quantity</span>
+                <input type="number" placeholder="1" ng-model="buyModeScope.product.quantity" />
+            </label>
+            <ion-toggle toggle-class="toggle-calm" ng-model="buyModeScope.product.expires">Expires</ion-toggle>
         </div>
     </ion-content>
 </ion-view>
