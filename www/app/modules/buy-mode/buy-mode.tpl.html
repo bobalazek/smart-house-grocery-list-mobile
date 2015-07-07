@@ -2,18 +2,13 @@
     <ion-header-bar align-title="left" class="bar-positive">
         <h1 class="title">Buy mode</h1>
         <div class="buttons">
+            <button class="button" ng-click="buyModeScope.scan()" style="margin-right: 20px;">Scan product</button>
             <button class="button" ng-click="buyModeScope.save()" style="margin-right: 20px;">Save</button>
             <button class="button" ng-click="buyModeScope.saveAndNew()">Save and New</button>
         </div>
     </ion-header-bar>
     <ion-content>
         <div class="list">
-            <div class="item">
-                <button class="button button-block button-large button-dark"
-                    ng-click="buyModeScope.scan()">
-                    Scan the product
-                </button>
-            </div>
             <label class="item item-input item-stacked-label">
                 <span class="input-label">Name</span>
                 <input type="text" placeholder="Coca-cola" ng-model="buyModeScope.product.name" />
