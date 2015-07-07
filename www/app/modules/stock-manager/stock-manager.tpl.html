@@ -15,7 +15,7 @@
         </div>
         <!-- Products -->
         <ion-list>
-            <ion-item ng-if="stockManagerScope.products.length == 0 && stockManagerScope.productsLoaded">
+            <ion-item ng-if="stockManagerScope.products.length == 0 && stockManagerScope.productsLoaded && stockManagerScope.productsLoadingError == ''">
                 You currently do not have a item added!
             </ion-item>
             <ion-item ng-if="stockManagerScope.products.length > 0 && (stockManagerScope.products | filter : stockManagerScope.search).length == 0 && stockManagerScope.search != ''">

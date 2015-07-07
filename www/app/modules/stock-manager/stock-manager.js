@@ -32,11 +32,10 @@ angular
 
                 $http
                     .get(
-                        // API_URL + '/my/products'
-                        'https://localhost/bitbucket/bobalazek/silex-web-application-boilerplate/web/api/v1' // just some tmp url, so we don't get 404's
+                        API_URL + '/my/products'
                     )
                     .success( function(data, status, headers, config) {
-                        // For now, just a placeholder...
+                        // vm.products = data.products;
                         vm.products = [
                             {
                                 id: 1,
