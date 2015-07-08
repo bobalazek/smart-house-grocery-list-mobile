@@ -82,7 +82,12 @@ angular
 
                                             quantityPopup.then( function(quantity) {
                                                 $http
-                                                    .get(API_URL + '/my/products/' + eanCode + '?byEanCode=true')
+                                                    .delete(
+                                                        API_URL + '/my/products/' + eanCode + '?byEanCode=true',
+                                                        {
+                                                            quantity: quantity,
+                                                        }
+                                                    )
                                                     .success( function(data, status, headers, config) {
                                                         $ionicPopup.alert({
                                                             title: 'Product removed',
