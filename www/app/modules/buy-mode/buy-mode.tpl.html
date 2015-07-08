@@ -1,9 +1,18 @@
 <ion-view view-title="Home" ng-controller="BuyModeController as buyModeScope">
     <ion-header-bar class="bar-positive" align-title="left">
+        <div class="buttons">
+            <button class="button button-icon icon ion-navicon"
+                ui-sref="home"></button>
+        </div>
         <h1 class="title">Buy mode</h1>
         <div class="buttons">
-            <button class="button" ng-click="buyModeScope.saveAndDone()" style="margin-right: 20px;">Save and Done</button>
-            <button class="button" ng-click="buyModeScope.saveAndNew()">Save and New</button>
+            <button class="button" ng-click="buyModeScope.saveAndDone()"
+                style="margin-right: 20px;">
+                Save and Done
+            </button>
+            <button class="button" ng-click="buyModeScope.saveAndNew()">
+                Save and New
+            </button>
         </div>
     </ion-header-bar>
     <ion-content>
