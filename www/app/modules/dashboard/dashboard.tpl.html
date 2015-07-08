@@ -1,7 +1,18 @@
-<ion-view view-title="Home">
+<ion-view view-title="Dashboard" ng-controller="DashboardController as dashboardScope">
+    <ion-header-bar class="bar-positive" align-title="left">
+        <div class="buttons">
+            <button class="button button-icon icon ion-navicon"
+                ui-sref="home"></button>
+        </div>
+        <h1 class="title">Dashboard</h1>
+    </ion-header-bar>
     <ion-content>
-        <h1 class="text-center">
-            Dashboard
-        </h1>
+        <div class="text-center padding">
+            Here we'll soon have some usefull information about the app, like:
+            how much have we spent this week / month for the groceries,
+            which will soon expire,
+            which is low on stock,
+            etc.
+        </div>
     </ion-content>
 </ion-view>
