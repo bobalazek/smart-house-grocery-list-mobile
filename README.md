@@ -22,7 +22,7 @@ Logically, it's not the final design yet. Just previews!
 ### Buy Mode View ###
 ![Buy Mode View](doc/images/buy-mode-view.png)
 
-### Trasj Mode View ###
+### Trash Mode View ###
 ![Trash Mode View](doc/images/trash-mode-view.png)
 
 License
