@@ -17,7 +17,10 @@ angular
     })
     .controller (
         'BuyModeController',
-        function BuyModeController($rootScope, $scope, $ionicPlatform, $cordovaBarcodeScanner, $http, $ionicLoading, API_URL, IS_DESKTOP) {
+        function BuyModeController(
+            $rootScope, $scope, $ionicPlatform, $cordovaBarcodeScanner,
+            $ionicPopup, $state, $http, $ionicLoading, API_URL, IS_DESKTOP
+        ) {
             var vm = this;
 
             vm.productScanned = false;
@@ -80,7 +83,7 @@ angular
                 });
             };
 
-            vm.save = function() {
+            vm.save = function(successCallback) {
                 var valid = true;
 
                 vm.product.nonExpiring = ! vm.product.expires;
@@ -102,6 +105,10 @@ angular
                                 title: 'Product saved',
                                 template: 'The product was successfully saved!',
                             });
+
+                            if(successCallback) {
+                                successCallback();
+                            }
                         })
                         .error( function(data, status, headers, config) {
                             $ionicPopup.alert({
@@ -116,20 +123,26 @@ angular
                 }
             };
 
-            vm.saveAndNew = function() {
-                vm.save();
+            vm.saveAndDone = function() {
+                vm.save( function() {
+                    $stage.go('home');
+                });
+            };
 
-                vm.productScanned = false;
-                vm.product = {
-                    name: '',
-                    description: '',
-                    eanCode: '',
-                    price: 1.99,
-                    quantity: 1,
-                    nonExpiring: false, // We'll probably use this varible ...
-                    expires: true, // ... and reverse this one on send / save
-                    timeExpiring: moment().format('YYYY-MM-DD'),
-                };
+            vm.saveAndNew = function() {
+                vm.save( function() {
+                    vm.productScanned = false;
+                    vm.product = {
+                        name: '',
+                        description: '',
+                        eanCode: '',
+                        price: 1.99,
+                        quantity: 1,
+                        nonExpiring: false, // We'll probably use this varible (for the API call) ...
+                        expires: true, // ... and reverse this one on send / save
+                        timeExpiring: moment().format('YYYY-MM-DD'),
+                    };
+                });
             };
 
             vm.timeExpiringCallback = function(val) {
