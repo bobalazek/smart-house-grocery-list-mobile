@@ -25,6 +25,11 @@ Logically, it's not the final design yet. Just previews!
 ### Trash Mode View ###
 ![Trash Mode View](doc/images/trash-mode-view.png)
 
+FAQ
+----------------
+### It doesn't look nice
+Don't worry, the final design will look MUCH different than the current one. My current main goal is to make the app functional. Once this is done, then I'll play around with the design.
+
 License
 --------
 Smart House Grocery List (Mobile) is licensed under the MIT License
