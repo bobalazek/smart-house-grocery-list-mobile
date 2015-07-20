@@ -11,8 +11,6 @@ Getting started
 
 Preview
 ----------------------
-Logically, it's not the final design yet. Just previews!
-
 ### Home View ###
 ![Home View](doc/images/home-view.png)
 
